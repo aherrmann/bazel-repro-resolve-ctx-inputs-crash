@@ -1,0 +1,12 @@
+load(":defs.bzl", "crash")
+
+sh_binary(
+    name = "tool",
+    srcs = ["tool.sh"],
+    deps = ["@bazel_tools//tools/bash/runfiles"],
+)
+
+crash(
+    name = "crash",
+    tool = ":tool",
+)
